@@ -6,7 +6,6 @@ const fs = require("fs");
 const path = require("path");
 
 async function main() {
-  console.log("AAAAAA");
   const args = process.argv.slice(2);
   let workspaceName, appName;
 
@@ -17,13 +16,13 @@ async function main() {
       {
         type: "text",
         name: "workspaceName",
-        message: "What is your project named?",
+        message: "What do you want to name your workspace/project?",
         initial: "my-turborepo",
       },
       {
         type: "text",
         name: "appName",
-        message: "What do you want to name your app?",
+        message: "And the name of your client facing app?",
         initial: "web",
       },
     ]);
