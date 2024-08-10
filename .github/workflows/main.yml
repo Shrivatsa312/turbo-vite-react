@@ -21,7 +21,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Publish to npm
-        run: npm publish
+      - name: Login to the npm account
         env:
           NODE_AUTH_TOKEN: ${{ secrets.TURBO_PN_VITE }}
+        run: echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
+
+      - name: Publish to npm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.TURBO_PN_VITE }}
+        run: npm publish
